@@ -1,0 +1,31 @@
+<%= form_with model: @person, local: true do |form| %>
+ 
+    <% if @person.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:
+            </h2>
+            <ul>
+                <% @person.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+ 
+    <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </p>
+
+    <div id="address">
+        <%= render 'address', :form => form %>
+    </div>
+
+    <a href="#" data-regex="person[addresses_attributes][_x_][street_address2]" data-add-new="#address">Add new Address</a>
+ 
+    <p>
+        <%= form.submit %>
+    </p>
+ 
+<% end %>

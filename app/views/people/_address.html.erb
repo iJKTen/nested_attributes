@@ -1,0 +1,14 @@
+<%= form.fields_for :addresses do |af| %>
+    <p>
+        <%= af.label :street_address1 %><br>
+        <%= af.text_field :street_address1 %>
+    </p>
+    <p>
+        <%= af.label :street_address2 %><br>
+        <%= af.text_field :street_address2 %>
+    </p>
+    <p>
+        <%= af.label :city %><br>
+        <%= af.text_field :city %>
+    </p>
+  <% end %>
